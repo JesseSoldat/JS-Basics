@@ -1,0 +1,10 @@
+.redBox {
+	height: 100px;
+	width: 100px;
+	background-color: red;
+	padding: 30px;
+	color: white;
+	float: left;
+	margin: 10px;
+}
+ 
