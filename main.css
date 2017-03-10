@@ -11,6 +11,15 @@
 	clear: both;
  }
 
+ #todoContainer {
+ 	float: left;
+ 	width: 45%;
+ }
+ #colorChangerContainer {
+ 	float: right;
+ 	width: 45%;
+ }
+
  #colorChanger {
  	width: 200px;
  	height: 100px;
@@ -20,7 +29,18 @@
  	text-align: center;
  	line-height: 50px;
  	letter-spacing: 3px;
-
+ 	padding: 10px 20px;
+ 	box-shadow: 2px 2px 2px black;
+ 	border-radius: 3px;
 
  	transition: background 0.7s;
  }
+ #toggleClick {
+ 	margin: 0 auto;
+ 	display: block;
+ 	padding: 10px 20px;
+ 	box-shadow: 2px 2px 2px black;
+ 	border-radius: 3px;
+ }
+
+

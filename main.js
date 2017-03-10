@@ -92,12 +92,29 @@ function setUpEvents() {
 	mouseMe.onmouseover = mouseOver;
 }
 function colorChanger(){
+	var counter = 0;
+	var colorChangeInterval;
 	var divColor = document.getElementById('colorChanger');
 	var divContent = divColor.getElementsByTagName('h2')[0];
 	var colors = ['blue','pink','red','yellow','black','orange','purple','green','coral','DarkOliveGreen','aqua','chocolate'];
 	var sentences = ['Are','You','Ready','For','The','Next','Season','Of','Game', 'Of', 'Thrones', '?'];
-	console.log('colors',colors.length, 'sentences', sentences.length);
-	var counter = 0;
+	var toggleBoolean = true;
+	var toggleClick = document.getElementById('toggleClick');
+	// console.log('colors',colors.length, 'sentences', sentences.length);
+
+	function checkBoolean(){
+		if(toggleBoolean) {
+				clearInterval(colorChangeInterval);
+				toggleBoolean = !toggleBoolean;
+				toggleClick.textContent = "START ME!";
+		} else {
+				colorChangeInterval = setInterval(changeColor,2000);
+				toggleBoolean = !toggleBoolean;
+				toggleClick.textContent = "STOP ME!";
+		}
+	}
+
+	toggleClick.onclick = checkBoolean;
 
 	function changeColor(){
 		divColor.style.background = colors[counter];
@@ -113,7 +130,7 @@ function colorChanger(){
 		}
 	}
 
-	setInterval(changeColor,2000);
+	colorChangeInterval = setInterval(changeColor,2000);
 
 }
 
