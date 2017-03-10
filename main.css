@@ -7,4 +7,20 @@
 	float: left;
 	margin: 10px;
 }
- 
+.clearFix {
+	clear: both;
+ }
+
+ #colorChanger {
+ 	width: 200px;
+ 	height: 100px;
+ 	margin: 30px auto;
+ 	border: 1px solid #000;
+ 	background: #fff;
+ 	text-align: center;
+ 	line-height: 50px;
+ 	letter-spacing: 3px;
+
+
+ 	transition: background 0.7s;
+ }
