@@ -36,45 +36,77 @@ car3.color = 'sliver';
 
 
 //CONSTRUCTOR
-function Car(make, model, color){
+function Car(make, model, color, letter){
+	this.make = make || 'unknown';
+	this.model = model || 'model';
+	this.color = color || 'unpainted';	
+	this.letter = letter;
+
+	// this.display = function(){
+	// 	msg.innerHTML += '<p>Your car is '+this.letter+' '+this.color+' '+this.make+' '+this.model+'</p>';
+	// };
+}
+
+Car.prototype.display = function(){
+	msg.innerHTML += '<p>Your car is '+this.letter+' '+this.color+' '+this.make+' '+this.model+'</p>';
+};
+
+function createCar(make, model, color){
 	var letter;
-	
-	// if(color.shift() === )
-	this.make = make;
-	this.model = model;
-	this.color = color;
 
-
-	if(color !== undefined){
+	if(color === undefined){
+		letter = 'an'
+	} else {
 		var newColor = color.toUpperCase();
 		var char = newColor.substring(0, 1);
 		
 		let booleanVowel = isVowel(char);
 		
 		if(booleanVowel){
-			console.log(this.color);
 			letter = 'an';
     } else {
     	letter = 'a';
     }
 	}
-
+		
 	function isVowel(x) {
     var result;
     result = x == "A" || x == "E" || x == "I" || x == "O" || x == "U";
     return result;
-	}
+	}	
 
-	this.display = function(){
-	msg.innerHTML += '<p>Your car is '+letter+' '+this.color+' '+this.make+' '+this.model+'</p>';
-	};
+	return new Car(make, model, color, letter);
 }
 
-var toyota = new Car('Toyota','Camry','white');
-var ford = new Car('Ford','GTO','orange');
-var audi = new Car('Audi', 'Sedan', 'silver');
+var toyota = createCar('Toyota','Camry','white');
+var ford = createCar('Ford','GTO','orange');
+var audi = createCar('Audi', 'Sedan', 'silver');
+var mazda = createCar('Mazda','CX3', 'black');
+var unknown = createCar();
 
+mazda.display = function(){
+	msg.innerHTML += '<p>I want to buy '+this.letter+' '+this.color+' '+this.make+' '+this.model+'</p>';
+};
+mazda.display(); //finds the display method on its own instance
 
-toyota.display();
-ford.display();
+toyota.display(); //looks at toyota. do I have a display method? NO. since it
+ford.display();   //is a type of Car (new Car) it finds the method on Car
 audi.display();
+unknown.display();
+
+//Object Prototypes
+String.prototype.reverse = function() {
+	return this.split('').reverse().join('');
+}
+
+var reverse = 'reverse me';
+var reversed = reverse.reverse(); 
+console.log(reversed);
+
+for (var char in reverse){
+	//console.log(char); //can see each letter AND the reverse function
+	//can avoid with .hasOwnProperty(prop)
+	if ( reverse.hasOwnProperty(char) ) {
+			//console.log(char); //properties that have NOT been inherited must directly belong
+	}
+}
