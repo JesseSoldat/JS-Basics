@@ -40,7 +40,7 @@ var lastName = name.substr(6);
 // console.log(lastName);
 
 var lastNameSliced = name.slice(6)
-console.log(lastNameSliced);
+// console.log(lastNameSliced);
 
 // msg.textContent = num;
 
@@ -59,7 +59,7 @@ var arrayMethods = [1,2,3,4,5];
 //CONCAT
 var arrayConcat = ['a','b','c'];
 var arrayConcated = arrayMethods.concat(arrayConcat);
-arrayMsg.textContent = arrayConcated;
+//arrayMsg.textContent = arrayConcated;
 // console.log(newArray);
 
 
@@ -105,18 +105,18 @@ function sortHightToLow(a,b){
 // console.log(sortArrayNum);
 
 sortArrayNum.sort( (a,b) => a - b);
-console.log(sortArrayNum);
+// console.log(sortArrayNum);
 
 sortArrayNum.sort( (a,b) => b - a);
-console.log(sortArrayNum);
+// console.log(sortArrayNum);
 
 var animals= ['dog','cat','mouse','tiger','zebra','elephant','monkey'];
 
 animals.sort(); //standad sort converts to string and sorts a-z
 animals.reverse(); //z-a
-console.log(animals);
+// console.log(animals);
 
 animals.sort( (a,b) => a.length - b.length);
-console.log(animals);
+// console.log(animals);
 
 
